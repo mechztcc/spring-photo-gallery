@@ -1,7 +1,5 @@
 package com.example.photo_gallery.modules.auth.services;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -11,9 +9,7 @@ import com.example.photo_gallery.modules.auth.dto.AuthDTO;
 import com.example.photo_gallery.modules.auth.dto.AuthResponseDTO;
 import com.example.photo_gallery.modules.users.model.User;
 import com.example.photo_gallery.modules.users.repositories.UsersRepository;
-
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
+import com.example.photo_gallery.security.JwtService;
 
 @Service
 public class CreateSession {
@@ -23,6 +19,9 @@ public class CreateSession {
 
     @Autowired
     private PasswordEncoder passwordEncoder;
+
+    @Autowired
+    private JwtService jwtService;
 
     @Value("${jwt.secret}")
     private String secretKey;
@@ -38,12 +37,7 @@ public class CreateSession {
             throw new RuntimeException("Invalid credentials");
         }
 
-        String token = Jwts.builder()
-                .setSubject(user.getId().toString())
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + expirationMs))
-                .signWith(SignatureAlgorithm.HS256, secretKey.getBytes())
-                .compact();
+        String token = jwtService.generateToken(user);
 
         return new AuthResponseDTO(token, user.getEmail(), user.getName());
     }
