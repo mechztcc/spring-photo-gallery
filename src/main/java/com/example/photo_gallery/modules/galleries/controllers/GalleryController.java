@@ -40,7 +40,7 @@ public class GalleryController {
     }
 
     @GetMapping("/list")
-    public ResponseEntity<Page<Gallery>> onListAll(@RequestParam(name = "page", defaultValue = "0") int page,
+    public ResponseEntity<Page<CreateGalleryResponseDTO>> onListAll(@RequestParam(name = "page", defaultValue = "0") int page,
             @RequestParam(name = "size", defaultValue = "10") int size) {
         return ResponseEntity.ok(listGalleryService.execute(page, size));
     }
