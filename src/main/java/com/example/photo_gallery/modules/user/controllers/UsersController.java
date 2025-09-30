@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.photo_gallery.modules.user.dto.UserDTO;
+import com.example.photo_gallery.modules.user.dto.UsersListDTO;
 import com.example.photo_gallery.modules.user.model.User;
 import com.example.photo_gallery.modules.user.services.CreateUserService;
 import com.example.photo_gallery.modules.user.services.ListAllUsersService;
@@ -33,7 +34,7 @@ public class UsersController {
     }
 
     @GetMapping("/list")
-    public Page<User> onListAll(
+    public Page<UsersListDTO> onListAll(
             @RequestParam(name = "page", defaultValue = "0") int page,
             @RequestParam(name = "size", defaultValue = "10") int size) {
         return listAllUsersService.execute(page, size);
