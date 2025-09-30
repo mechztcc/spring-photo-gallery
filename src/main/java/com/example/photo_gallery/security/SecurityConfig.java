@@ -23,6 +23,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**").permitAll()
                         .requestMatchers("/users/create").permitAll()
+                        .requestMatchers("/galleries/list/**").permitAll()
                         .anyRequest().authenticated() // Demais rotas precisam do token
                 )
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

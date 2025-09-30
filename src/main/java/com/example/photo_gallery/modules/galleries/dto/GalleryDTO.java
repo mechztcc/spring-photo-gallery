@@ -1,6 +1,5 @@
 package com.example.photo_gallery.modules.galleries.dto;
 
-import org.checkerframework.common.value.qual.BoolVal;
 
 import com.example.photo_gallery.modules.galleries.model.Gallery;
 
