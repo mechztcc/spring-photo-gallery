@@ -2,6 +2,8 @@ package com.example.photo_gallery.modules.galleries.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,14 +27,14 @@ public class GalleryController {
     private ListGalleryService listGalleryService;
 
     @PostMapping("/create")
-    public Gallery onSave(@RequestBody GalleryDTO gallery) {
-        return createGalleryService.execute(gallery);
+    public ResponseEntity<Gallery> onSave(@RequestBody GalleryDTO gallery) {
+        return ResponseEntity.status(HttpStatus.CREATED).body(createGalleryService.execute(gallery));
     }
 
     @GetMapping("/list")
-    public Page<Gallery> onListAll(@RequestParam(name = "page", defaultValue = "0") int page,
+    public ResponseEntity<Page<Gallery>> onListAll(@RequestParam(name = "page", defaultValue = "0") int page,
             @RequestParam(name = "size", defaultValue = "10") int size) {
-        return listGalleryService.execute(page, size);
+        return ResponseEntity.ok(listGalleryService.execute(page, size));
     }
 
 }
