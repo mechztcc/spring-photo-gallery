@@ -1,12 +1,12 @@
-package com.example.photo_gallery.modules.user.services;
+package com.example.photo_gallery.modules.users.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.example.photo_gallery.modules.user.dto.UserDTO;
-import com.example.photo_gallery.modules.user.model.User;
-import com.example.photo_gallery.modules.user.repositories.UsersRepository;
+import com.example.photo_gallery.modules.users.dto.UserDTO;
+import com.example.photo_gallery.modules.users.model.User;
+import com.example.photo_gallery.modules.users.repositories.UsersRepository;
 
 @Service
 public class CreateUserService {

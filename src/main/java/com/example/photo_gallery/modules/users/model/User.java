@@ -1,10 +1,14 @@
-package com.example.photo_gallery.modules.user.model;
+package com.example.photo_gallery.modules.users.model;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import com.example.photo_gallery.modules.galleries.model.Gallery;
 
 import jakarta.persistence.*;
 
@@ -33,6 +37,9 @@ public class User {
     @LastModifiedDate
     @Column(nullable = false)
     private LocalDateTime updatedAt;
+
+    @OneToMany(mappedBy = "owner", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Gallery> galleries = new ArrayList<>();
 
     // Getters and Setters
     public Long getId() {

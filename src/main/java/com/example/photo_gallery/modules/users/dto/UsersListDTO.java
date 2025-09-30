@@ -1,6 +1,6 @@
-package com.example.photo_gallery.modules.user.dto;
+package com.example.photo_gallery.modules.users.dto;
 
-import com.example.photo_gallery.modules.user.model.User;
+import com.example.photo_gallery.modules.users.model.User;
 
 public class UsersListDTO {
 

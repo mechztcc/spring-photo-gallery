@@ -1,10 +1,10 @@
-package com.example.photo_gallery.modules.user.services;
+package com.example.photo_gallery.modules.users.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.example.photo_gallery.modules.user.dto.UsersListDTO;
-import com.example.photo_gallery.modules.user.repositories.UsersRepository;
+import com.example.photo_gallery.modules.users.dto.UsersListDTO;
+import com.example.photo_gallery.modules.users.repositories.UsersRepository;
 
 import org.springframework.data.domain.Page; // ✅ vem do Spring Data
 import org.springframework.data.domain.Pageable; // ✅ vem do Spring Data

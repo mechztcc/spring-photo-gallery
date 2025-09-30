@@ -1,14 +1,14 @@
-package com.example.photo_gallery.modules.user.controllers;
+package com.example.photo_gallery.modules.users.controllers;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.photo_gallery.modules.user.dto.UserDTO;
-import com.example.photo_gallery.modules.user.dto.UsersListDTO;
-import com.example.photo_gallery.modules.user.model.User;
-import com.example.photo_gallery.modules.user.services.CreateUserService;
-import com.example.photo_gallery.modules.user.services.ListAllUsersService;
+import com.example.photo_gallery.modules.users.dto.UserDTO;
+import com.example.photo_gallery.modules.users.dto.UsersListDTO;
+import com.example.photo_gallery.modules.users.model.User;
+import com.example.photo_gallery.modules.users.services.CreateUserService;
+import com.example.photo_gallery.modules.users.services.ListAllUsersService;
 
 import jakarta.validation.Valid;
 
